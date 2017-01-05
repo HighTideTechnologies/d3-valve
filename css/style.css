@@ -1,0 +1,29 @@
+body {
+  background-color: #133440
+}
+
+.wrapper {
+  background-color: #2d4e5a;
+  height: 200px;
+  width: 200px;
+  display:flex;
+}
+
+.svg-body {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 8px;
+}
+
+.svg-container {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}

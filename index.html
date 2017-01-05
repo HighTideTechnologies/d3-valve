@@ -1,0 +1,60 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>D3 Valve</title>
+  <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+  <div class="wrapper ui-resizable">
+    <div class="svg-body">
+      <div class="svg-container">
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="js/d3-valve.js"></script>
+    <script>
+    function getRandom() {
+      return Math.floor(Math.random() * 100);
+    }
+
+    function getNow() {
+      return Date().slice(16, 24);
+    }
+    var randomColor = ["#C62828", "#BA68C8", "#1976D2", "#FFB74D", "#607D8B"];
+
+    function getRandomColor() {
+      return randomColor[Math.floor(Math.random() * 5)];
+    }
+
+    var valve = $(".svg-container").valve({
+      sideRectHeight: 100
+    });
+
+    $(".wrapper").resizable({
+      stop: function(event, ui) {
+        valve.redraw();
+      }
+    });
+
+    valve.click(function() {
+      this.toggleValve();
+    })
+
+    function shrink() {
+      document.getElementsByClassName('wrapper')[0].setAttribute("style", "width:200px;height:200px;");
+      valve.redraw();
+    }
+
+    function enlarge() {
+      document.getElementsByClassName('wrapper')[0].setAttribute("style", "width:400px;height:400px;");
+      valve.redraw();
+    }
+    </script>
+</body>
+
+</html>
